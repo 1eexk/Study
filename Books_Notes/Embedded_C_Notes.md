@@ -1,6 +1,6 @@
 ### 2.2.1 计算机的基石：图灵机
 
-![image-20230328154933104](https://raw.iqiq.io/1eexk/Image/master/image-20230328154933104.png)
+![image-20230328154933104](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230328154933104.png)
 
 
 
@@ -33,7 +33,7 @@ DRAM：读写速度较慢，集成度高，生产成本低，多用于容量较�
 
 **cache既可以在core内部集成，又可以在core外面**，下面如图就是集成的L1,L2 Cache和core外共享的L3 Cache。
 
-![image-20230407155433760](https://raw.iqiq.io/1eexk/Image/master/image-20230407155433760.png)
+![image-20230407155433760](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407155433760.png)
 
 
 
@@ -62,11 +62,11 @@ DRAM：读写速度较慢，集成度高，生产成本低，多用于容量较�
 
 ​	CPU执行指令的3个时钟周期里，**取指单元只在第一个时钟周期里工作**，其余两个时钟周期都处于空闲状态，其他两个执行单元也是如此。这样做效率太低了，消费者无法接受，老板更无法接受。解决方法就是引入流水线，让流水线上的每一颗螺丝钉都马不停蹄地运转起来。
 
-![image-20230328170534362](https://raw.iqiq.io/1eexk/Image/master/image-20230328170534362.png)
+![image-20230328170534362](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230328170534362.png)
 
 　如图2-35所示，引入流水线后，除了刚开始的第一个时钟周期大家可以偷懒，其余的时间都不能闲着：从第二个时钟周期开始，当译码单元在翻译指令1时，取指单元也不能闲着，要接着去取指令2。从第三个时钟周期开始，当执行单元执行指令1时，译码单元也不能闲着，要接着去翻译指令2，而取指单元要去取指令3。从第四个时钟周期开始，每个电路单元都会进入满负荷工作状态，像富士康工厂里的流水线一样，源源不断地执行一条条指令。
 
-![image-20230328170850415](https://raw.iqiq.io/1eexk/Image/master/image-20230328170850415.png)
+![image-20230328170850415](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230328170850415.png)
 
 　　引入流水线后，虽然每一条指令的执行流程和时间不变，还是需要3个时钟周期，但是从整条流水线的输出来看，差不多平均每个时钟周期就能执行一条指令。原来执行一条指令需要3个时钟周期，引入流水线后平均只需要1个时钟周期，CPU性能提升了不少。
 
@@ -166,11 +166,11 @@ ARM指令集虽然属于RISC，但是和原汁原味的RISC相比，还是有一
 
 ARM处理器有多种工作模式，如表3-1所示。应用程序**正常运行**时，ARM处理器工作在**用户模式（User mode）**，当程序运行**出错或有中断发生**时，ARM处理器就会切换到对应的**特权工作模式**。用户模式属于普通模式，有些特权指令是运行不了的，需要切换到特权模式下才能运行。在ARM处理器中，除了用户模式是普通模式，剩下的几种工作模式都属于特权模式。
 
-![image-20230407165221186](https://raw.iqiq.io/1eexk/Image/master/image-20230407165221186.png)
+![image-20230407165221186](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407165221186.png)
 
 在ARM处理器内部，除了基本的算术运算单元、逻辑运算单元、浮点运算单元和控制单元，还有一系列寄存器，包括各种通用寄存器、状态寄存器、控制寄存器，用来控制处理器的运行，保存程序运行时的各种状态和临时结果，如图3-1所示。
 
-![image-20230407165710385](https://raw.iqiq.io/1eexk/Image/master/image-20230407165710385.png)
+![image-20230407165710385](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407165710385.png)
 
 R13寄存器又称为堆栈指针寄存器（Stack Pointer，SP），用来维护和管理函数调用过程中的栈帧变化，R13总是指向当前正在运行的函数的栈帧，一般不能再用作其他用途。R14寄存器又称为链接寄存器（Link Register，LR），在函数调用过程中主要用来保存上一级函数调用者的返回地址。寄存器R15又称为程序计数器（Program Counter，PC），CPU从内存取指令执行，就是默认从PC保存的地址中取的，每取一次指令，PC寄存器的地址值自动增加。CPU一条一条不停地取指令，程序也就源源不断地一直运行下去。**在ARM三级流水线中，PC指针的值等于当前正在运行的指令地址+8**，后续的32位处理器虽然流水线的级数不断增加，但为了简化编程，PC指针的值继续延续了这种计算方式。
 
@@ -206,11 +206,11 @@ R13寄存器又称为堆栈指针寄存器（Stack Pointer，SP），用来维�
 
 ARM处理器属于冯·诺依曼架构，程序和数据都存储在同一存储器上，内存空间和I/O空间统一编址，ARM处理器对程序指令、数据、I/O空间中外设寄存器的访问都要通过Load/Store指令来完成。ARM处理器中经常使用的Load/Store指令的使用方法如下。
 
-![image-20230407183006998](https://raw.iqiq.io/1eexk/Image/master/image-20230407183006998.png)
+![image-20230407183006998](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407183006998.png)
 
 在ARM存储访问指令中，我们经常使用的是LDR/STR、LDM/STM这两对指令。LDR/STR指令是ARM汇编程序中使用频率最高的一对指令，每一次数据的处理基本上都离不开它们。LDM/STM指令常用来加载或存储一组寄存器到一片连续的内存，通过和堆栈格式符组合使用，LDM/STM指令还可以用来模拟堆栈操作。LDM/STM指令常和表3-2的堆栈格式组合使用。
 
-![image-20230407183207028](https://raw.iqiq.io/1eexk/Image/master/image-20230407183207028.png)
+![image-20230407183207028](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407183207028.png)
 
 如图3-3所示，在一个堆栈内存结构中，如果堆栈指针SP总是指向栈顶元素，那么这个栈就是满栈；如果堆栈指针SP指向的是栈顶元素的下一个空闲的存储单元，那么这个栈就是空栈。
 
@@ -226,7 +226,7 @@ LDR/STR指令用来在寄存器和内存之间输送数据。如果我们想要�
 
 STM/LDM指令就属于多寄存器寻址，一次可以传输多个寄存器的值。
 
-![image-20230407190241045](https://raw.iqiq.io/1eexk/Image/master/image-20230407190241045.png)
+![image-20230407190241045](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407190241045.png)
 
 在多寄存器寻址中，用大括号{}括起来的是寄存器列表，寄存器之间用逗号隔开，如果是连续的寄存器，还可以使用连接符-连接，如R0-R3，就表示R0、R1、R2、R3这4个寄存器。LDM/STM指令一般和IA、IB、DA、DB组合使用，分别表示Increase After、Increase Before、Decrease After、Decrease Before。
 
@@ -246,13 +246,13 @@ ARM没有专门的入栈和出栈指令，ARM中的栈操作其实就是通过�
 
 相对寻址其实也属于基址寻址，只不过它是基址寻址的一种特殊情况。它是**以PC指针作为基地址**进行寻址的，以指令中的地址差作为偏移，两者相加后得到的就是一个新地址，然后可以对这个地址进行读写操作。ARM中的B、BL、ADR指令其实都是采用相对寻址的。
 
-![image-20230407190742843](https://raw.iqiq.io/1eexk/Image/master/image-20230407190742843.png)
+![image-20230407190742843](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407190742843.png)
 
 ## 3.4 ARM伪指令
 
 ARM伪指令并不是ARM指令集中定义的标准指令，而是为了编程方便，各家编译器厂商自定义的一些辅助指令。**伪指令有点类似C语言中的预处理命令，在程序编译时，这些伪指令会被翻译为一条或多条ARM标准指令。**常见的ARM伪指令主要有4个：**ADR、ADRL、LDR、NOP**，它们的使用示例如下。
 
-![image-20230407190836263](https://raw.iqiq.io/1eexk/Image/master/image-20230407190836263.png)
+![image-20230407190836263](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230407190836263.png)
 
 NOP伪指令比较简单，其实就相当于MOV R0，R0。在以后的学习和工作中，大家在ARM汇编程序中经常看到的就是LDR伪指令。
 
@@ -262,25 +262,25 @@ ARM属于RISC架构，不能对内存中的数据直接操作，ARM通常会使�
 
 在寄存器之间传递数据可以使用MOV指令，但是当传递的一个内存地址是32位的立即数时，MOV指令就应付不了了，如下面的第2条指令。
 
-![image-20230411112925185](https://raw.iqiq.io/1eexk/Image/master/image-20230411112925185.png)
+![image-20230411112925185](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230411112925185.png)
 
 RISC指令的特点是单周期指令，指令的长度一般都是固定的。在一个32位的系统中，一条指令通常是32位的，指令中包括操作码和操作数，如图3-5所示。
 
-![image-20230411113033531](https://raw.iqiq.io/1eexk/Image/master/image-20230411113033531.png)
+![image-20230411113033531](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230411113033531.png)
 
 指令中的操作码和操作数共享32位的存储空间：**一般前面的操作码要占据几个比特位，剩下来的留给操作数的编码空间就小于32位**了。当编译器遇到MOV R0，＃0x30008000这条指令时，因为后面的操作数是32位，编译器就无法对这条指令进行编码了。为了解决这个难题，编译器提供了一个LDR伪指令来完成上面的功能。
 
-![image-20230411113318427](https://raw.iqiq.io/1eexk/Image/master/image-20230411113318427.png)
+![image-20230411113318427](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230411113318427.png)
 
 在上面的示例代码中，LDR不是普通的ARM加载指令，而是一个伪指令。为了与ARM指令集中的加载指令LDR区别开来，LDR伪指令中的操作数前一般会有一个等于号=，用来表示该指令是个伪指令。通过LDR伪指令，编译器就解决了向一个寄存器传送32位的立即数时指令无法编码的难题。
 
 在程序编译期间，这些伪指令会被标准的ARM指令替代。编译器在处理伪指令时，根据伪指令中的操作数大小，会使用不同的ARM标准指令替代。如当LDR伪指令中的**操作数小于8位**时，LDR伪指令一般会**被MOV指令替代**。
 
-![image-20230411113508336](https://raw.iqiq.io/1eexk/Image/master/image-20230411113508336.png)
+![image-20230411113508336](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230411113508336.png)
 
 当LDR伪指令中的**操作数大于8位**时，LDR伪指令会被编译器转换为**LDR标准指令+文字池**的形式。
 
-![image-20230411114311946](https://raw.iqiq.io/1eexk/Image/master/image-20230411114311946.png)
+![image-20230411114311946](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230411114311946.png)
 
 在上面的示例代码中，当LDR伪指令中的操作数为一个32位的立即数时，编译器会首先在内存中分配一个4字节大小的存储单元，然后将这个32位的地址0x30008000存放到该存储单元中，该存储单元通常也叫作文字池（literal pool）。接着编译器计算出该存储单元到LDR伪指令之间的偏移OFFSET，然后使用寄存器相对寻址，就可以将这个32位的立即数送到R0寄存器中。偏移量OFFSET的大小一般要小于4KB，所以在分析汇编代码时你会看到，存放这些32位地址常量的文字池一般紧挨着当前指令的代码段，直接放置在当前代码段的后面。
 
@@ -294,7 +294,7 @@ RISC指令的特点是单周期指令，指令的长度一般都是固定的。�
 
 在一个汇编文件中，可以有不同的section，分为代码段、数据段等，各个段之间相互独立。**AREA伪操作来标识一个段的起始、段名和段的读写属性。**
 
-![image-20230412194716736](https://raw.iqiq.io/1eexk/Image/master/image-20230412194716736.png)
+![image-20230412194716736](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230412194716736.png)
 
 上图的汇编是由两个数据段构成的，一个数据段，一个代码段。由AREA伪操作来标识一个段的起始、段名、段的属性（CODE、DATA）和读写权限（READONLY、READWRITE）。
 
@@ -316,7 +316,7 @@ ARM汇编程序通过`ENTRY`这个伪操作来标识汇编程序的**运行入�
 
 编译生成的二进制文件可以通过`readelf`命令来查看信息。
 
-![image-20230521175138653](https://raw.iqiq.io/1eexk/Image/master/image-20230521175138653.png)
+![image-20230521175138653](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230521175138653.png)
 
 `readelf -h`命令主要用来获取可执行文件的头部信息，主要包括可执行文件运行的平台、软件版本、程序入口地址，以及program headers、section header等信息。通过文件的头部信息，我们可以知道在a.out可执行文件里一共有多少个section headers。
 
@@ -336,6 +336,6 @@ section headers是用来描述可执行文件的section信息。一个可执行�
 
 在最后环节，编译器还会在可执行文件中添加一些其他section，如.init section，这些代码来自C语言运行库的一些汇编代码，用来初始化C程序运行所依赖的环境，如内存堆栈的初始化等。
 
-![image-20230521190359251](https://raw.iqiq.io/1eexk/Image/master/image-20230521190359251.png)
+![image-20230521190359251](https://cdn.staticaly.com/gh/1eexk/Image/master/image-20230521190359251.png)
 
 ## 4.2 预处理过程
